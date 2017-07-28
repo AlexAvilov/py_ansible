@@ -14,8 +14,10 @@ def create_list():
     my_list[-1][2] = 'two'
     my_list[-1][1] = 'one'
     my_list[-1]['digit'] = range(10)
-
+    
     return( my_list)
 
 my_list = create_list()
-print my_list
+
+print yaml.dump(my_list, default_flow_style=False)
+
