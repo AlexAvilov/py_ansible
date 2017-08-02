@@ -3,6 +3,7 @@
 import yaml 
 import json
 import ciscoconfparse
+from pprint import pprint as pp
 
 def create_list():
     my_list = range(6)
@@ -19,5 +20,38 @@ def create_list():
 
 my_list = create_list()
 
-print yaml.dump(my_list, default_flow_style=False)
+# YAML
+# print yaml.dump(my_list, default_flow_style=False)
+
+with open("ex6.yml", "w") as f:
+    f.write(yaml.dump(my_list, default_flow_style=False))
+
+with open("ex6-1.yml", "w") as f:
+    yaml.dump(my_list, f)
+
+
+# json
+# print json.dumps(my_list)
+
+with open("ex6.json", "w") as f:
+    json.dump(my_list,f)
+
+
+
+with open("ex6.yml") as f:
+    y_list = yaml.load(f)
+
+    pp(y_list)
+
+with open("ex6-1.yml") as f:
+    y_list = yaml.load(f)
+
+    pp(y_list)
+
+
+
+with open("ex6.json") as f:
+    j_list = json.load(f)
+
+    pp(j_list)
 
